@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Timo Angst
+      changes:
+        - createTable:
+            tableName: article
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: text
+                  type: varchar(255)
+  - changeSet:
+      id: 2
+      author: Timo Angst
+      changes:
+        - modifyDataType:
+            columnName: text
+            newDataType: varchar(999)
+            tableName: article
+  - changeSet:
+      id: 3
+      author: Timo Angst
+      changes:
+        - renameTable:
+            newTableName: articles
+            oldTableName: article
+  - changeSet:
+      id: 4
+      author: Timo Angst
+      changes:
+        - addColumn:
+            tableName: articles
+            columns:
+                - column:
+                    name: version
+                    type: integer
+                - column:
+                    name: created_ts
+                    type: timestamp(6)
