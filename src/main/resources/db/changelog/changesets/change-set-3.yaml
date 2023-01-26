@@ -1,0 +1,14 @@
+# Aufgabe 2
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: Timo Angst
+      comment: rename the table article to articles
+      changes:
+        - renameTable:
+            newTableName: articles
+            oldTableName: article
+      rollback:
+        - renameTable:
+            newTableName: article
+            oldTableName: articles

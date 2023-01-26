@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The entity for the comments table
+ */
 @Getter
 @Setter
 @Entity

@@ -1,0 +1,53 @@
+# Aufgabe 7
+databaseChangeLog:
+  - changeSet:
+      id: 8
+      author: Timo Angst
+      comment: add sample data to all tables
+      changes:
+        - insert:
+            tableName: articles
+            columns:
+              - column:
+                  name: id
+                  value: 93f6cccf-62c2-4b1a-9cf0-af7f4f429807
+              - column:
+                  name: title
+                  value: "some sample article title"
+              - column:
+                  name: text
+                  value: "a sample article text"
+              - column:
+                  name: category
+                  value: 1
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: "some sample category name"
+              - column:
+                  name: description
+                  value: "a sample category description"
+        - insert:
+            tableName: comments
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: text
+                  value: "a sample comment"
+              - column:
+                  name: article_id
+                  value: 93f6cccf-62c2-4b1a-9cf0-af7f4f429807
+      rollback:
+        - delete:
+            tableName: comments
+            where: "id = 1"
+        - delete:
+            tableName: category
+            where: "name = 'some sample category name'"
+        - delete:
+            tableName: articles
+            where: "id = '93f6cccf-62c2-4b1a-9cf0-af7f4f429807'"

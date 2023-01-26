@@ -8,6 +8,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.sql.Timestamp;
 import java.util.UUID;
 
+/**
+ * The entity for the articles table
+ */
 @Getter
 @Setter
 @Entity
