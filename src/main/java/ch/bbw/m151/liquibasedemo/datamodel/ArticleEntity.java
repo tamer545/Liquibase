@@ -17,16 +17,21 @@ public class ArticleEntity {
     @GeneratedValue
     @Column(columnDefinition = "uuid")
     private UUID id;
-    @Column(nullable = false, length = 999)
+
+    @Column(nullable = false)
     String title;
-    @Column(length = 999)
-    String text;
 
     @Column
+    String text;
+
+    @Column(nullable = false, updatable = false)
     @CreationTimestamp
     private Timestamp createdTs;
 
     @Column
     @Version
     private int version;
+
+    @Column
+    int category;
 }
