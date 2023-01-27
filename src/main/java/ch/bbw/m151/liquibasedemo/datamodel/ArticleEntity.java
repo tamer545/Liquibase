@@ -16,25 +16,31 @@ import java.util.UUID;
 @Entity
 @Table(name = "articles")
 public class ArticleEntity {
+    //the UUID
     @Id
     @GeneratedValue
     @Column(columnDefinition = "uuid")
     private UUID id;
 
+    //the article title
     @Column(nullable = false)
     String title;
 
+    //the text of the article
     @Column
     String text;
 
+    //the column stating when it was created
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
     private Timestamp createdTs;
 
+    //the version column
     @Column
     @Version
     private int version;
 
+    //the foreign key to the category
     @Column
     int category;
 }

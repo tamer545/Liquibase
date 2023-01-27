@@ -14,8 +14,10 @@ import lombok.Setter;
 @Entity
 @Table(name = "category")
 public class CategoryEntity {
+    //the name of the category
     @Id
     private String name;
 
+    //the category description
     private String description;
 }
